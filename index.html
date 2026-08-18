@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Question 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <div class="heart">💗</div>
+    <h1>Will you go out with me? 🌹</h1>
+    <p>I have one very important question for you...</p>
+
+    <div class="buttons" id="buttonArea">
+      <button id="yesBtn" class="yes">Yes 💕</button>
+      <button id="noBtn" class="no">No 😢</button>
+    </div>
+
+    <p class="hint">Choose carefully... 😉</p>
+  </main>
+
+  <div class="hearts" aria-hidden="true">
+    <span>♥</span><span>♥</span><span>♥</span><span>♥</span><span>♥</span>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const area = document.getElementById("buttonArea");
+
+    function moveNoButton() {
+      const padding = 12;
+      const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+      const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+      const x = Math.max(padding, Math.random() * maxX);
+      const y = Math.max(padding, Math.random() * maxY);
+
+      noBtn.style.position = "fixed";
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+      noBtn.style.zIndex = "20";
+    }
+
+    // On desktop it moves when hovered; on phones it moves when touched.
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      moveNoButton();
+    }, { passive: false });
+
+    noBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "yes.html";
+    });
+  </script>
+</body>
+</html>

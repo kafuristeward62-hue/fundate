@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>It's a Yes! 💕</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="celebrate">
+  <div class="card success">
+    <div class="big-heart">💖</div>
+    <h1>Yaaaay! 🎉</h1>
+    <h2>You selected YES! 🥰</h2>
+    <p>Congratulations! You just made someone very happy. 💕</p>
+    <p>Get ready for our date! 🌹✨</p>
+    <button class="yes back" onclick="window.location.href='index.html'">
+      Ask me again 💗
+    </button>
+  </div>
+
+  <script>
+    // Simple falling-heart celebration.
+    for (let i = 0; i < 28; i++) {
+      const heart = document.createElement("span");
+      heart.className = "falling-heart";
+      heart.textContent = ["💗","💕","💖","💘","🌹"][Math.floor(Math.random() * 5)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 3 + "s";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
